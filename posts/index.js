@@ -1,13 +1,13 @@
 const express = require('express');
 const { randomBytes } = require('crypto');
-const bodyParser =  require('body-parser');
 const app = express();
 const cors =  require('cors');
 
 const posts = {};
-
-app.use(bodyParser.json());
 app.use(cors());
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 
 
 app.get('/api/posts', (req, res) => {
