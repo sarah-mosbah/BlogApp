@@ -12,7 +12,7 @@ const commentsOfPosts = {}
 app.get('/api/posts/:id/comments', (req, res) => {
     const { id } = req.params;
     return res.status(200).json(commentsOfPosts[id] || []);
-})
+});
 app.post('/api/posts/:id/comments', (req, res) => {
     const commentId = randomBytes(4).toString('hex');
    const { content } = req.body;
@@ -24,4 +24,4 @@ app.post('/api/posts/:id/comments', (req, res) => {
 });
 
 
-app.listen(4001, ()=> console.log('listen on 4001'));
+app.listen(5556, ()=> console.log('listen on 5556'));

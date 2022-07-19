@@ -7,14 +7,13 @@ const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:4000/api/posts");
+    const res = await axios.get("http://localhost:5555/api/posts");
 
     setPosts(res.data);
   };
 
   useEffect(() => {
     fetchPosts();
-    console.log('sksks')
   }, []);
 
   const renderedPosts = Object.values(posts).map((post) => {
