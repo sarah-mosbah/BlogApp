@@ -24,5 +24,10 @@ app.post('/api/posts', async (req, res) => {
    return res.status(201).send(posts[id]);
 });
 
+app.post('/events', (req,res)=> {
+   console.log('recieved event', req.body);
+   return res.status(200)
+});
+
 
 app.listen(5555, ()=> console.log('listen on 5555'));
