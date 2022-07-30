@@ -22,7 +22,17 @@ app.post('/events', (req,res)=> {
         comments.push({postId, comment, commentId, status });
         console.log(posts[postId].comments);
         return res.status(200).json(posts[postId]);
-    }
+    } else if (type === "CommentUpdated") {
+        const {postId, id } = req.body.data;
+        console.log('dkdkd',req.body.data)
+        if(!posts[postId])
+          return res.status(404).json({message: "Post Not Found"});
+        const { comments } = posts[postId];
+        const toBeUpdatedCommentIndex = comments.findIndex((comment) => comment.commentId ===  id);
+        comments[toBeUpdatedCommentIndex] = {...req.body.data}
+        console.log(posts[postId])
+        return res.status(200).json(posts[postId]);
+      }
    
    
  });
